@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:,">
+<title>Pasar Malam — Spot the Difference</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header id="hud">
+  <div class="brand">
+    <span class="brand-mark">&#9678;</span>
+    <span class="brand-name">PASAR MALAM</span>
+  </div>
+  <div class="level" id="levelName">LEVEL 1 &bull; WARUNG KOPI PAGI</div>
+  <div class="counter" id="counter">DITEMUKAN 0/7 &bull; SISA 7</div>
+  <div class="timer-wrap">
+    <div class="timer-bar"><div id="timerFill"></div></div>
+    <span id="timerText">2:00</span>
+  </div>
+  <div class="score">SKOR <b id="score">0</b> <span id="combo" class="combo"></span></div>
+  <button id="hintBtn" class="hud-btn" type="button">HINT (3)</button>
+  <button id="muteBtn" class="hud-btn" type="button">SUARA: ON</button>
+  <button id="pauseBtn" class="hud-btn" type="button">II</button>
+</header>
+
+<main id="stage">
+  <canvas id="game" width="1280" height="700"></canvas>
+</main>
+
+<footer id="foot">
+  <div id="msg">Klik perbedaan di salah satu panel &mdash; kiri atau kanan, sama saja!</div>
+  <div id="dots" class="dots" aria-label="progress level"></div>
+  <div class="foot-btns">
+    <button id="restartBtn" class="foot-btn" type="button">ULANG LEVEL</button>
+    <button id="menuBtn" class="foot-btn" type="button">MENU</button>
+  </div>
+</footer>
+
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+/* Pasar Malam — Spot the Difference. HUD styling only; the scenes live on canvas. */
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #171208;
+  color: #f7ead0;
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  overflow: hidden;
+  user-select: none;
+}
+
+#hud {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 12px;
+  background: linear-gradient(180deg, #33240f, #241a0b);
+  border-bottom: 3px solid #f5b942;
+}
+
+.brand { display: flex; align-items: baseline; gap: 6px; white-space: nowrap; }
+.brand-mark { color: #f5b942; font-size: 18px; line-height: 1; }
+.brand-name { font-size: 18px; font-weight: 900; letter-spacing: 1px; color: #ffd97a; }
+.brand-sub { font-size: 10px; font-weight: 700; letter-spacing: 2px; color: #d9b48a; }
+
+.level {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #ffe9b8;
+  background: #4a2f10;
+  border: 1px solid #7a5426;
+  border-radius: 999px;
+  padding: 5px 10px;
+  white-space: nowrap;
+}
+
+.counter {
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: #171208;
+  background: #ffd97a;
+  border-radius: 10px;
+  padding: 6px 12px;
+  white-space: nowrap;
+  box-shadow: 0 0 0 2px #f5b942, 0 3px 0 #a86f14;
+}
+
+.timer-wrap { display: flex; align-items: center; gap: 6px; flex: 1; min-width: 100px; }
+.timer-bar {
+  flex: 1;
+  height: 16px;
+  background: #120c05;
+  border: 1px solid #7a5426;
+  border-radius: 999px;
+  overflow: hidden;
+}
+#timerFill {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, #57c465, #a8e063);
+  border-radius: 999px;
+  transition: width 0.2s linear;
+}
+#timerFill.low { background: linear-gradient(90deg, #e05252, #ff9d5c); }
+#timerText { font-size: 16px; font-weight: 800; min-width: 44px; text-align: right; }
+
+.score { font-size: 14px; font-weight: 700; letter-spacing: 1px; white-space: nowrap; }
+.score b { font-size: 18px; color: #ffd97a; }
+.combo { color: #ff8a5c; font-weight: 900; }
+
+.hud-btn, .foot-btn {
+  font: inherit;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  color: #ffd97a;
+  background: #4a2f10;
+  border: 1px solid #7a5426;
+  border-radius: 8px;
+  padding: 7px 9px;
+  cursor: pointer;
+}
+.hud-btn:hover, .foot-btn:hover { background: #5d3d16; }
+.hud-btn:disabled { opacity: 0.45; cursor: default; }
+.hud-btn.armed { background: #f5b942; color: #171208; }
+
+/* Title screen: the gameplay HUD stays out of the way. */
+body.title-screen #counter,
+body.title-screen .timer-wrap,
+body.title-screen .score,
+body.title-screen #hintBtn,
+body.title-screen #muteBtn,
+body.title-screen #pauseBtn,
+body.title-screen .foot-btns { display: none; }
+
+#stage { height: 700px; }
+#game { display: block; margin: 0 auto; cursor: crosshair; }
+
+#foot {
+  height: 36px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 16px;
+  background: #241a0b;
+  border-top: 2px solid #f5b942;
+  font-size: 13px;
+}
+#msg { flex: 1; color: #e8d5ae; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dots { letter-spacing: 6px; font-size: 14px; color: #f5b942; }
+.dots .done { color: #57c465; }
+.dots .todo { color: #6b543a; }
+.foot-btns { display: flex; gap: 8px; }
+.foot-btn { padding: 4px 10px; font-size: 11px; }
